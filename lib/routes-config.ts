@@ -78,6 +78,7 @@ export const ROUTES: EachRoute[] = [
       },
     ],
   },
+
   {
     title: 'Indices (Laws of Exponents)',
     href: '/Indices',
@@ -142,6 +143,99 @@ export const ROUTES: EachRoute[] = [
       {
         title: 'Solving Fractional Equations',
         href: '/Solving-Fractional-Equations',
+      },
+    ],
+  },
+  { 
+    title: 'Solving Equations',
+    href: '/solving-equations',
+    noLink: true,
+    items: [
+      {
+        title: 'Linear Equations in One Variable',
+        href: '/linear-equations-in-one-variable',
+      },
+      {
+        title: 'Quadratic Equations by Factorization',
+        href: '/quadratic-equations-by-factorization',
+      },
+      {
+        title: ' Fra ctional Equations',
+        href: '/fractional-equations',
+      },
+    ],
+  },
+  {
+    title: 'Formulas and Substitutions',
+    href: '/formulas-and-substitutions',
+    noLink: true,
+    items: [
+      {
+        title: 'Substituting Values into Expressions',
+        href: '/substituting-values-into-expressions',
+      },
+      {
+        title: 'Deriving and Using Formulas',
+        href: '/deriving-and-using-formulas',
+      },
+      {
+        title: 'Changing the Subject of a Formula',
+        href: '/changing-the-subject-of-a-formula',
+      },
+    ],
+  },
+
+  {
+    title: 'Graphing Linear Equations',
+    href: '/graphing-linear-equations',
+    noLink: true,
+    items: [
+      {
+        title: 'Basics of the Cartesian Plane',
+        href: '/basics-of-the-cartesian-plane',
+      },
+      {
+        title: 'Plotting Points and Drawing Graphs',
+        href: '/plotting-points-and-drawing-graphs',
+      },
+      {
+        title: 'Gradient (Slope) and Y-intercept',
+        href: '/gradient-slope-and-y-intercept',
+      },
+    ],
+  },
+ 
+  {
+    title: 'Simultaneous Equations',
+    href: '/simultaneous-equations',
+    noLink: true,
+    items: [
+      {
+        title: 'Solving by Substitution',
+        href: '/solving-by-substitution',
+      },
+      {
+        title: 'Solving by Elimination',
+        href: '/solving-by-elimination',
+      },
+      {
+        title: 'Solving by Graphing',
+        href: '/solving-by-graphing',
+      },
+    ],
+  },
+  {
+    title: 'Inequalities',
+    href: '/inequalities',
+    noLink: true,
+    items: [
+      {
+        title: 'Solving Linear Inequalities',
+        href: '/solving-linear-inequalities',
+      },
+      {
+        title: 'Graphical Representation on a Number Line',
+        href: '/graphing-on-a-number-line',
       },
     ],
   },
