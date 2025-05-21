@@ -78,6 +78,24 @@ export const ROUTES: EachRoute[] = [
       },
     ],
   },
+  {
+    title: 'Indices (Laws of Exponents)',
+    href: '/Indices',
+    items: [
+      {
+        title: 'Product, Quotient, and Power Rules',
+        href: '/Product-Quotient-and-Power-Rules',
+      },
+      {
+        title: 'Zero and Negative Indices',
+        href: '/Zero-and-Negative-Indices',
+      },
+      {
+        title: 'Simplifying Using Indices',
+        href: '/Simplifying-Using-Indices',
+      },
+    ],
+  },
 ];
 
 type Page = { title: string; href: string };
