@@ -1,0 +1,91 @@
+
+---
+
+## 1. Basics of the Cartesian Plane
+
+### Concept
+
+The Cartesian plane is a two-dimensional coordinate system where:
+- The horizontal axis is called the x-axis
+- The vertical axis is called the y-axis
+- The point where they intersect is called the origin (0,0)
+- Each point is represented by an ordered pair (x,y)
+
+### Understanding Coordinates
+- First number (x): distance from y-axis
+- Second number (y): distance from x-axis
+- Example: (3,2) means:
+  * 3 units right on x-axis
+  * 2 units up on y-axis
+
+This graph shows the point (3,2) on a coordinate system.
+
+
+<svg width="400" height="400" viewBox="-6 -6 12 12" xmlns="http://www.w3.org/2000/svg" style={{ background: "white" }}>
+  {/* Grid lines */}
+  <g stroke="#ccc" stroke-width="0.05">
+    {/* Vertical grid lines */}
+    <line x1="-5" y1="-5" x2="-5" y2="5"/>
+    <line x1="-4" y1="-5" x2="-4" y2="5"/>
+    <line x1="-3" y1="-5" x2="-3" y2="5"/>
+    <line x1="-2" y1="-5" x2="-2" y2="5"/>
+    <line x1="-1" y1="-5" x2="-1" y2="5"/>
+    <line x1="1" y1="-5" x2="1" y2="5"/>
+    <line x1="2" y1="-5" x2="2" y2="5"/>
+    <line x1="3" y1="-5" x2="3" y2="5"/>
+    <line x1="4" y1="-5" x2="4" y2="5"/>
+    <line x1="5" y1="-5" x2="5" y2="5"/>
+    
+    {/* Horizontal grid lines */}
+    <line x1="-5" y1="-5" x2="5" y2="-5"/>
+    <line x1="-5" y1="-4" x2="5" y2="-4"/>
+    <line x1="-5" y1="-3" x2="5" y2="-3"/>
+    <line x1="-5" y1="-2" x2="5" y2="-2"/>
+    <line x1="-5" y1="-1" x2="5" y2="-1"/>
+    <line x1="-5" y1="1" x2="5" y2="1"/>
+    <line x1="-5" y1="2" x2="5" y2="2"/>
+    <line x1="-5" y1="3" x2="5" y2="3"/>
+    <line x1="-5" y1="4" x2="5" y2="4"/>
+    <line x1="-5" y1="5" x2="5" y2="5"/>
+  </g>
+
+  {/* Axes */}
+  <g stroke="black" stroke-width="0.15">
+    <line x1="-5.5" y1="0" x2="5.5" y2="0"/>
+    <line x1="0" y1="-5.5" x2="0" y2="5.5"/>
+  </g>
+
+  {/* Tick labels */}
+  <g font-size="0.4" fill="black">
+    {/* x-axis labels */}
+    <text x="-4.8" y="0.4">-5</text>
+    <text x="-3.8" y="0.4">-4</text>
+    <text x="-2.8" y="0.4">-3</text>
+    <text x="-1.8" y="0.4">-2</text>
+    <text x="-0.8" y="0.4">-1</text>
+    <text x="0.2" y="0.4">1</text>
+    <text x="1.2" y="0.4">2</text>
+    <text x="2.2" y="0.4">3</text>
+    <text x="3.2" y="0.4">4</text>
+    <text x="4.2" y="0.4">5</text>
+
+    {/* y-axis labels */}
+    <text x="0.2" y="-4.8">5</text>
+    <text x="0.2" y="-3.8">4</text>
+    <text x="0.2" y="-2.8">3</text>
+    <text x="0.2" y="-1.8">2</text>
+    <text x="0.2" y="-0.8">1</text>
+    <text x="0.2" y="1.2">-1</text>
+    <text x="0.2" y="2.2">-2</text>
+    <text x="0.2" y="3.2">-3</text>
+    <text x="0.2" y="4.2">-4</text>
+    <text x="0.2" y="5.2">-5</text>
+  </g>
+
+  {/* Point */}
+  <circle cx="3" cy="-2" r="0.2" fill="red"/>
+  <text x="3.2" y="-1.7" font-size="0.5" fill="black">(3,2)</text>
+</svg>
+```
+
+
