@@ -1,0 +1,66 @@
+
+## Plotting Points and Drawing Graphs
+
+### Steps to Graph a Linear Equation
+1. Choose values for x
+2. Find corresponding y values
+3. Plot the points
+4. Draw a straight line through the points
+
+### Example: Graphing y = 2x + 1
+
+#### Step 1: Create a Table of Values
+| x | y = 2x + 1 | Point |
+|---|------------|-------|
+| -1 | -1 | (-1, -1) |
+| 0 | 1 | (0, 1) |
+| 1 | 3 | (1, 3) |
+
+#### Step 2: Plot the Points and Draw the Line
+
+<svg width="400" height="400" viewBox="-5 -5 10 10" xmlns="http://www.w3.org/2000/svg" style={{ background: "white" }}>
+  {/* Grid lines */}
+  <g stroke="#ccc" stroke-width="0.1">
+    <line x1="-5" y1="-5" x2="5" y2="-5"/>
+    <line x1="-5" y1="-4" x2="5" y2="-4"/>
+    <line x1="-5" y1="-3" x2="5" y2="-3"/>
+    <line x1="-5" y1="-2" x2="5" y2="-2"/>
+    <line x1="-5" y1="-1" x2="5" y2="-1"/>
+    <line x1="-5" y1="0" x2="5" y2="0"/>
+    <line x1="-5" y1="1" x2="5" y2="1"/>
+    <line x1="-5" y1="2" x2="5" y2="2"/>
+    <line x1="-5" y1="3" x2="5" y2="3"/>
+    <line x1="-5" y1="4" x2="5" y2="4"/>
+    <line x1="-5" y1="5" x2="5" y2="5"/>
+
+    <line x1="-5" y1="-5" x2="-5" y2="5"/>
+    <line x1="-4" y1="-5" x2="-4" y2="5"/>
+    <line x1="-3" y1="-5" x2="-3" y2="5"/>
+    <line x1="-2" y1="-5" x2="-2" y2="5"/>
+    <line x1="-1" y1="-5" x2="-1" y2="5"/>
+    <line x1="1" y1="-5" x2="1" y2="5"/>
+    <line x1="2" y1="-5" x2="2" y2="5"/>
+    <line x1="3" y1="-5" x2="3" y2="5"/>
+    <line x1="4" y1="-5" x2="4" y2="5"/>
+    <line x1="5" y1="-5" x2="5" y2="5"/>
+  </g>
+
+  {/* Axes */}
+  <g stroke="black" stroke-width="0.2">
+    <line x1="-5" y1="0" x2="5" y2="0"/>
+    <line x1="0" y1="-5" x2="0" y2="5"/>
+  </g>
+
+  {/* Line y = 2x + 1 */}
+  <line x1="-2" y1="-3" x2="2" y2="5" stroke="blue" stroke-width="0.2"/>
+
+  {/* Points */}
+  <circle cx="-1" cy="-1" r="0.2" fill="red"/>
+  <circle cx="0" cy="1" r="0.2" fill="red"/>
+  <circle cx="1" cy="3" r="0.2" fill="red"/>
+
+  {/* Labels */}
+  <text x="-1.8" y="-1.2" font-size="0.5" fill="black">(-1,-1)</text>
+  <text x="0.3" y="1.2" font-size="0.5" fill="black">(0,1)</text>
+  <text x="1.3" y="3.2" font-size="0.5" fill="black">(1,3)</text>
+</svg>
