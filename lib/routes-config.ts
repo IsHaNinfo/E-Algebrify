@@ -96,6 +96,55 @@ export const ROUTES: EachRoute[] = [
       },
     ],
   },
+  {
+    title: 'Factorization',
+    href: '/factorization',
+    items: [
+      {
+        title: 'Finding Common Factors',
+        href: '/Finding-Common-Factors',
+      },
+      {
+        title: 'Difference of Two Squares',
+        href: '/Difference-of-Two-Squares',
+      },
+
+      {
+        title: 'Perfect Square Trinomials',
+        href: '/Perfect-Square-Trinomials',
+      },
+      {
+        title: 'Grouping Method',
+        href: '/Grouping-Method',
+      },
+      {
+        title: 'Factorizing Quadratic Expressions',
+        href: '/Factorizing-Quadratic-Expressions',
+      },
+    ],
+  },
+  {
+    title: 'Algebraic Fractions',
+    href: '/Algebraic-Fractions',
+    items: [
+      {
+        title: 'Operations on Algebraic Fractions',
+        href: '/Operations-on-Algebraic-Fractions',
+      },
+      {
+        title: 'Solving Linear Equations',
+        href: '/Solving-Linear-Equations',
+      },
+      {
+        title: 'Solving Quadratic Equations by Factorization',
+        href: '/Solving-Quadratic-Equations-by-Factorization',
+      },
+      {
+        title: 'Solving Fractional Equations',
+        href: '/Solving-Fractional-Equations',
+      },
+    ],
+  },
 ];
 
 type Page = { title: string; href: string };
