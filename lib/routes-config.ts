@@ -49,21 +49,32 @@ export const ROUTES: EachRoute[] = [
   {
     title: 'Basic Algebraic Concepts',
     href: '/basic-algebraic-concepts',
-    noLink: true,
     items: [
       {
         title: 'Variables, Constants, and Terms',
         href: '/variables-constants-and-terms',
-        noLink: true,
-        items: [
-          { title: 'Variables', href: '/variables' },
-          { title: 'Constants', href: '/constants' },
-          { title: 'Terms', href: '/terms' },
-        ],
       },
       {
         title: 'Coefficients and Powers',
         href: '/coefficients-and-powers',
+      },
+    ],
+  },
+  {
+    title: 'Simplification of Algebraic Expressions',
+    href: '/simplification-of-algebraic-expressions',
+    items: [
+      {
+        title: 'Adding and Subtracting Like Terms',
+        href: '/adding-and-subtracting-like-terms',
+      },
+      {
+        title: 'Multiplication and Division of Terms',
+        href: '/multiplication-and-division-of-terms',
+      },
+      {
+        title: 'Use and Removal of Brackets',
+        href: '/use-and-removal-of-brackets',
       },
     ],
   },
