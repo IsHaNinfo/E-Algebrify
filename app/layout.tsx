@@ -4,6 +4,8 @@ import { Navbar } from "@/components/navbar";
 import { Space_Mono, Space_Grotesk } from "next/font/google";
 import { Footer } from "@/components/footer";
 import "@/styles/globals.css";
+import { ConditionalNavbar } from "@/components/ConditionalNavbar";
+import { AuthProvider } from '@/store/AuthContext';
 
 const sansFont = Space_Grotesk({
   subsets: ["latin"],
@@ -28,35 +30,38 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-        />
-      </head>
-      <body
-        className={`${sansFont.variable} ${monoFont.variable} font-regular antialiased tracking-wide`}
-        suppressHydrationWarning
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+    <AuthProvider>
+      <html lang="en" suppressHydrationWarning>
+        <head>
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+          />
+        </head>
+        <body
+          className={`${sansFont.variable} ${monoFont.variable} font-regular antialiased tracking-wide`}
+          suppressHydrationWarning
         >
-          <Navbar />
-          <main className="sm:container mx-auto w-[90vw] h-auto scroll-smooth">
-            {children}
-          </main>
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ConditionalNavbar />
+            <main className="sm:container mx-auto w-[90vw] h-auto scroll-smooth">
+              {children}
+            </main>
+            <Footer />
+          </ThemeProvider>
+        </body>
+      </html>
+    </AuthProvider>
   );
 }
