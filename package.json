@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "install:force": "npm install --force"
   },
   "dependencies": {
     "@docsearch/react": "^3.9.0",
