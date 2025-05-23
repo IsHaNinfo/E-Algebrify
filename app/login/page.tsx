@@ -4,6 +4,12 @@ import { useAuth } from '@/store/AuthContext';
 import { loginUser } from '@/services/api';
 import { useRouter } from 'next/navigation';
 import ErrorMessage from '@/components/ErrorMessage';
+import { AxiosError } from 'axios';
+
+interface ApiErrorResponse {
+    message: string;
+    status: number;
+}
 
 const LoginPage = () => {
     const { setToken } = useAuth();
@@ -16,13 +22,16 @@ const LoginPage = () => {
         e.preventDefault();
         setError('');
         try {
-            console.log(email, password);
             const { token } = await loginUser(email, password);
-
             setToken(token);
             router.push('/');
-        } catch (err: any) {
-            setError('Invalid email or password');
+        } catch (err) {
+            if (err instanceof AxiosError && err.response?.data) {
+                const errorData = err.response.data as ApiErrorResponse;
+                setError(errorData.message);
+            } else {
+                setError('An unexpected error occurred');
+            }
         }
     };
 
@@ -70,7 +79,7 @@ const LoginPage = () => {
                     </button>
                 </form>
                 <div className="mt-4 text-center text-gray-400 text-sm">
-                    Don't have an account? <a href="/register" className="text-black-600 hover:underline">Register</a>
+                    Don&apos;t have an account? <a href="/register" className="text-black-600 hover:underline">Register</a>
                 </div>
             </div>
         </div>
