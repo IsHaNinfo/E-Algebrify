@@ -4,10 +4,24 @@ import { registerUser } from '@/services/api';
 import { useRouter } from 'next/navigation';
 import ErrorMessage from '@/components/ErrorMessage';
 import SuccessMessage from '@/components/SuccessMessage';
+import { AxiosError } from 'axios';
+
+interface ApiErrorResponse {
+    message: string;
+    status: number;
+}
+
+interface RegisterForm {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNumber: string;
+    password: string;
+}
 
 const RegisterPage = () => {
     const router = useRouter();
-    const [form, setForm] = useState({
+    const [form, setForm] = useState<RegisterForm>({
         firstName: '',
         lastName: '',
         email: '',
@@ -34,15 +48,19 @@ const RegisterPage = () => {
                 form.phoneNumber,
                 form.password
             );
-            console.log(status, message)
             if (status === 201 || status === 200) {
                 setSuccess(message || 'Registration successful! Redirecting to login...');
                 setTimeout(() => router.push('/login'), 1500);
             } else {
                 setError(message || 'Registration failed');
             }
-        } catch (err: any) {
-            setError(err.response?.data?.message || 'Registration failed');
+        } catch (err) {
+            if (err instanceof AxiosError && err.response?.data) {
+                const errorData = err.response.data as ApiErrorResponse;
+                setError(errorData.message);
+            } else {
+                setError('An unexpected error occurred');
+            }
         }
     };
 

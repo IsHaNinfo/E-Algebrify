@@ -51,34 +51,45 @@ export function Navbar() {
   );
 }
 
+interface User {
+  firstName: string;
+  lastName: string;
+  id: string;
+}
+
+interface DecodedToken {
+  id: string;
+  exp: number;
+  iat: number;
+  sub: string;
+}
+
 function UserAvatarDropdown() {
   const { token, logout } = useAuth();
   const [open, setOpen] = useState(false);
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     async function fetchUser() {
       if (!token) return;
       try {
-        const decoded: any = jwtDecode(token);
+        const decoded = jwtDecode<DecodedToken>(token);
         const userId = decoded.id;
-        console.log(userId)
         const userData = await getUserById(userId);
-        console.log(userData.data)
         setUser(userData.data);
-        console.log(user.firstName)
         // Optionally update localStorage
         localStorage.setItem("user", JSON.stringify(userData.data));
-      } catch (e) {
+      } catch (error) {
+        console.error('Error fetching user:', error);
         setUser(null);
       }
     }
     fetchUser();
   }, [token]);
 
-  let firstName = user?.firstName || "";
-  let lastName = user?.lastName || "";
-  let initials = `${firstName?.[0] || ""}${lastName?.[0] || ""}`.toUpperCase() || "?";
+  const firstName = user?.firstName || "";
+  const lastName = user?.lastName || "";
+  const initials = `${firstName?.[0] || ""}${lastName?.[0] || ""}`.toUpperCase() || "?";
 
   if (!token) return null;
 
