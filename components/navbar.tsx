@@ -1,3 +1,4 @@
+"use client"
 import { ModeToggle } from "@/components/theme-toggle";
 import { CommandIcon } from "lucide-react";
 import Link from "next/link";
@@ -5,6 +6,10 @@ import Anchor from "./anchor";
 import { SheetLeftbar } from "./leftbar";
 import { page_routes } from "@/lib/routes-config";
 import { SheetClose } from "@/components/ui/sheet";
+import { useState, useEffect } from "react";
+import { useAuth } from "@/store/AuthContext";
+import { jwtDecode } from "jwt-decode"
+import { getUserById } from "@/services/api";
 
 export const NAVLINKS = [
   {
@@ -15,10 +20,7 @@ export const NAVLINKS = [
     title: "Blog",
     href: "/blog",
   },
-
 ];
-
-
 
 export function Navbar() {
   return (
@@ -41,10 +43,83 @@ export function Navbar() {
             <div className="flex ml-4 sm:ml-0">
               <ModeToggle />
             </div>
+            <UserAvatarDropdown />
           </div>
         </div>
       </div>
     </nav>
+  );
+}
+
+interface User {
+  firstName: string;
+  lastName: string;
+  id: string;
+}
+
+interface DecodedToken {
+  id: string;
+  exp: number;
+  iat: number;
+  sub: string;
+}
+
+function UserAvatarDropdown() {
+  const { token, logout } = useAuth();
+  const [open, setOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    async function fetchUser() {
+      if (!token) return;
+      try {
+        const decoded = jwtDecode<DecodedToken>(token);
+        const userId = decoded.id;
+        const userData = await getUserById(userId);
+        setUser(userData.data);
+        // Optionally update localStorage
+        localStorage.setItem("user", JSON.stringify(userData.data));
+      } catch (error) {
+        console.error('Error fetching user:', error);
+        setUser(null);
+      }
+    }
+    fetchUser();
+  }, [token]);
+
+  const firstName = user?.firstName || "";
+  const lastName = user?.lastName || "";
+  const initials = `${firstName?.[0] || ""}${lastName?.[0] || ""}`.toUpperCase() || "?";
+
+  if (!token) return null;
+
+  return (
+    <div className="relative ml-4">
+      <button
+        className="w-9 h-9 rounded-full bg-gray-700 flex items-center justify-center text-white font-bold text-lg focus:outline-none"
+        onClick={() => setOpen((v) => !v)}
+        title="Account"
+      >
+        {initials}
+      </button>
+      {open && (
+        <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded shadow-lg z-50 p-4">
+          <div className="mb-2 text-gray-900 dark:text-white font-semibold text-base">
+            {firstName} {lastName}
+          </div>
+          <button
+            className="w-full text-left px-3 py-2 rounded bg-red-500 text-white hover:bg-red-600"
+            onClick={() => {
+              logout();
+              setOpen(false);
+              window.location.href = "/login";
+            }}
+          >
+            Logout
+          </button>
+        </div>
+      )}
+    </div>
   );
 }
 

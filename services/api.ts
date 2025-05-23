@@ -35,3 +35,7 @@ export async function registerUser(firstName: string, lastName: string, email: s
     };
 }
 
+export async function getUserById(id: string) {
+    const res = await axios.get(process.env.NEXT_PUBLIC_API_URL + '/users/' + id,);
+    return res.data;
+}
