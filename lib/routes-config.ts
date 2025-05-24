@@ -6,7 +6,7 @@ export type EachRoute = {
   noLink?: true; // noLink will create a route segment (section) but cannot be navigated
   items?: EachRoute[];
   tag?: string;
-};
+  type?: 'tsx' | 'mdx'; };
 
 export const ROUTES: EachRoute[] = [
   // {
@@ -58,6 +58,11 @@ export const ROUTES: EachRoute[] = [
         title: 'Coefficients and Powers',
         href: '/coefficients-and-powers',
       },
+      {
+        title:"Lesson quiz",
+        href: '/testing-quiz',
+        type:"tsx"
+      }
     ],
   },
   {
