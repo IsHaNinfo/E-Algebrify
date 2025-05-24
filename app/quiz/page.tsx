@@ -74,7 +74,6 @@ function Page() {
           answer: answer,
         });
       }
-      console.log(updatedAnswers, 'updatedAnswers');
       setQuestionAnswers(updatedAnswers);
     };
 
@@ -128,9 +127,6 @@ function Page() {
             <div className="absolute inset-0 bg-white  transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out group-hover:origin-left group-hover:duration-300 group-hover:ease-out group-hover:transition-transform group-hover:z-0 group-hover:rounded-2xl "></div>
           </div>
 
-          <div onClick={() => console.log(questionAnswers, 'ssssssssssssss')}>
-            fv
-          </div>
           {currentQuestionIndex < quizData.questions.length - 1 ? (
             <div
               onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
