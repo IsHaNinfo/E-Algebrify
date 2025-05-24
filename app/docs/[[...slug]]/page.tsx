@@ -21,9 +21,7 @@ export default async function DocsPage(props: PageProps) {
   const isQuizPage = slug[slug.length - 1]?.endsWith('-quiz');
 
   if (isQuizPage) {
-    return (
-      <Quiz/>
-    );
+    return <Quiz slug={slug} />;
   }
 
   const res = await getCompiledDocsForSlug(pathName);

@@ -2,7 +2,7 @@
 import ProgressBar from '@/components/ui/ProgressBar';
 
 import React, { useState } from 'react';
-function Quiz() {
+function Quiz({slug}: {slug: string[]}) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showError, setShowError] = useState(false);
   const [showResult, setShowResult] = useState(false);
@@ -67,9 +67,10 @@ function Quiz() {
       if (currentQuestionIndex < quizData.questions.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
       } else {
-        console.log('Quiz completed!', questionAnswers);
+        console.log('Quiz completed!', questionAnswers, slug);
         setShowResult(true);
-        setCurrentQuestionIndex(0);
+          setCurrentQuestionIndex(0);
+          
       }
     } else {
       setShowError(true);
