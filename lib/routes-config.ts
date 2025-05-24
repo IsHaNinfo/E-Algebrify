@@ -6,6 +6,7 @@ export type EachRoute = {
   noLink?: true; // noLink will create a route segment (section) but cannot be navigated
   items?: EachRoute[];
   tag?: string;
+  isReactComponent?: boolean;
 };
 
 export const ROUTES: EachRoute[] = [
@@ -144,9 +145,14 @@ export const ROUTES: EachRoute[] = [
         title: 'Solving Fractional Equations',
         href: '/Solving-Fractional-Equations',
       },
+      {
+        title: 'Algebraic Fractions Assessment',
+        href: '/Test',
+        isReactComponent: true
+      },
     ],
   },
-  { 
+  {
     title: 'Solving Equations',
     href: '/solving-equations',
     noLink: true,
@@ -204,7 +210,7 @@ export const ROUTES: EachRoute[] = [
       },
     ],
   },
- 
+
   {
     title: 'Simultaneous Equations',
     href: '/simultaneous-equations',

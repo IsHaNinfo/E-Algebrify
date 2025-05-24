@@ -24,6 +24,10 @@ export const NAVLINKS = [
     title: 'Leaderboard',
     href: '/leaderBoard',
   },
+  {
+    title: 'Assessments',
+    href: '/assessments',
+  },
 ];
 
 export function Navbar() {
