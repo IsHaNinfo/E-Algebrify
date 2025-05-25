@@ -149,9 +149,14 @@ export const ROUTES: EachRoute[] = [
         title: 'Solving Fractional Equations',
         href: '/Solving-Fractional-Equations',
       },
+      {
+        title: 'Algebraic Fractions Assessment',
+        href: '/Test',
+        type:"tsx"
+      },
     ],
   },
-  { 
+  {
     title: 'Solving Equations',
     href: '/solving-equations',
     noLink: true,
@@ -209,7 +214,7 @@ export const ROUTES: EachRoute[] = [
       },
     ],
   },
- 
+
   {
     title: 'Simultaneous Equations',
     href: '/simultaneous-equations',

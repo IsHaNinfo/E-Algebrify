@@ -147,6 +147,16 @@ export async function getAllChilds(pathString: string) {
 
   return await Promise.all(
     page_routes_copy.map(async (it) => {
+      // Check if it's a React component
+      if (it.isReactComponent) {
+        return {
+          title: it.title,
+          href: `/docs${prevHref}${it.href}`,
+          isReactComponent: true
+        };
+      }
+
+      // Otherwise handle as MDX
       const totalPath = path.join(
         process.cwd(),
         "/contents/docs/",
