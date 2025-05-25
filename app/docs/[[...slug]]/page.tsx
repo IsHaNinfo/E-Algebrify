@@ -41,7 +41,6 @@ export default async function DocsPage(props: PageProps) {
             </p>
             <div>{res.content}</div>
             <Pagination pathname={pathName} />
-
           </Typography>
         </div>
       </div>
