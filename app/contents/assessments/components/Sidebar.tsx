@@ -1,17 +1,17 @@
 "use client"
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import Link from 'next/link';
 import { assessmentRoutes } from '../../../assessments/routeConfig';
 
 const Sidebar = () => {
-    const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
+    // const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
 
-    const toggleSection = (title: string) => {
-        setOpenSections((prev) => ({
-            ...prev,
-            [title]: !prev[title],
-        }));
-    };
+    // const toggleSection = (title: string) => {
+    //     setOpenSections((prev) => ({
+    //         ...prev,
+    //         [title]: !prev[title],
+    //     }));
+    // };
 
     return (
         <div className="w-64 bg-gray-900 text-white p-4 border-r border-gray-800 h-screen">

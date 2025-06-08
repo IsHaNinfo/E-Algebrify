@@ -78,6 +78,18 @@ const FormulasAndSubstitutionsAssessment = () => {
                     )}
                 </div>
             ))}
+            {userAnswers[formulasAndSubstitutionsQuestions[0].id] !== undefined && (
+                        // <div className={`mt-4 p-2 rounded ${
+                        //     userAnswers[question.id] 
+                        //         ? 'bg-green-600 text-white' 
+                        //         : 'bg-red-600 text-white'
+                        // }`}>
+                        //     {userAnswers[question.id] 
+                        //         ? 'Correct!' 
+                        //         : 'Incorrect. Try again!'}
+                        // </div>
+                        <div></div>
+                    )}
         </div>
     );
 };

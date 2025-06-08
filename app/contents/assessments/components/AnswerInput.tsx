@@ -11,6 +11,7 @@ const AnswerInput: React.FC<AnswerInputProps> = ({ questionId, correctAnswer, on
     const [userAnswer, setUserAnswer] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
+    const id = questionId;
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
