@@ -1,12 +1,10 @@
-// for page navigation & to sort on leftbar
-
 export type EachRoute = {
   title: string;
   href: string;
   noLink?: true; // noLink will create a route segment (section) but cannot be navigated
   items?: EachRoute[];
   tag?: string;
-  isReactComponent?: boolean;
+  type?: 'tsx' | 'mdx';
 };
 
 export const ROUTES: EachRoute[] = [
@@ -50,6 +48,7 @@ export const ROUTES: EachRoute[] = [
   {
     title: 'Basic Algebraic Concepts',
     href: '/basic-algebraic-concepts',
+    noLink: true,
     items: [
       {
         title: 'Variables, Constants, and Terms',
@@ -59,6 +58,11 @@ export const ROUTES: EachRoute[] = [
         title: 'Coefficients and Powers',
         href: '/coefficients-and-powers',
       },
+      {
+        title: "Lesson quiz",
+        href: '/testing-quiz',
+        type: "tsx"
+      }
     ],
   },
   {
@@ -144,11 +148,6 @@ export const ROUTES: EachRoute[] = [
       {
         title: 'Solving Fractional Equations',
         href: '/Solving-Fractional-Equations',
-      },
-      {
-        title: 'Algebraic Fractions Assessment',
-        href: '/Test',
-        isReactComponent: true
       },
     ],
   },
