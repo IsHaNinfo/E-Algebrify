@@ -1,14 +1,21 @@
 'use client';
 import ProgressBar from '@/components/ui/ProgressBar';
 import { Check } from 'lucide-react';
-
+import { useAuth } from '@/store/AuthContext';
 import React, { useEffect, useState } from 'react';
+import { addPointsToUser } from '@/services/api';
 function Quiz({ slug }: { slug: string[] }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showError, setShowError] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [alreadyCompleted, setAlreadyCompleted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { token } = useAuth();
+
+  useEffect(() => {
+    console.log('Token:', token);
+  }, [token]);
+
   const quizData = {
     id: 1,
     name: 'Basic Algebraic Concepts',
@@ -52,7 +59,7 @@ function Quiz({ slug }: { slug: string[] }) {
 
   const [questionAnswers, setQuestionAnswers] = useState<QuestionAnswer[]>([]);
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (
       questionAnswers.some(
         (data) => data.id === quizData.questions[currentQuestionIndex].id
@@ -72,10 +79,15 @@ function Quiz({ slug }: { slug: string[] }) {
             .length,
           slug
         );
+        const marks= questionAnswers.filter((data) => data.answer == data.correctAnswer).length
+        console.log("🚀 ~ handleNext ~ marks:", marks)
         setShowResult(true);
         setCurrentQuestionIndex(0);
         setLoading(true);
-        setTimeout(() => {}, 500);
+        const result = await addPointsToUser(marks, token);
+        setLoading(false);
+
+        // setTimeout(() => {}, 500);
       }
     } else {
       setShowError(true);
@@ -292,7 +304,6 @@ function Quiz({ slug }: { slug: string[] }) {
         {alreadyCompleted && (
           <div className="text-center mt-10 text-2xl text-green-600">
             Completed <Check size={26} className="inline ml-2" />
-
           </div>
         )}
       </div>
