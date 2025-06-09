@@ -1,3 +1,4 @@
+
 import DocsBreadcrumb from '@/components/docs-breadcrumb';
 import Pagination from '@/components/pagination';
 import Toc from '@/components/toc';
@@ -6,7 +7,7 @@ import { notFound } from 'next/navigation';
 import { getCompiledDocsForSlug, getDocFrontmatter } from '@/lib/markdown';
 import { Typography } from '@/components/typography';
 import Quiz from '@/components/ui/quiz';
-
+import quizArray from '@/store/questions';
 type PageProps = {
   params: Promise<{ slug: string[] }>;
 };
@@ -14,14 +15,20 @@ type PageProps = {
 export default async function DocsPage(props: PageProps) {
   const params = await props.params;
   const { slug = [] } = params;
+  // console.log('🚀 ~ DocsPage ~ slug:', slug);
 
   const pathName = slug.join('/');
 
   // Check if the last slug segment ends with '-quiz'
   const isQuizPage = slug[slug.length - 1]?.endsWith('-quiz');
 
+
   if (isQuizPage) {
-    return <Quiz slug={slug} />;
+    const quizData = quizArray.find((q) => q.location === slug[0]);
+
+    if (!quizData) notFound();
+
+    return <Quiz quizData={quizData} />;
   }
 
   const res = await getCompiledDocsForSlug(pathName);

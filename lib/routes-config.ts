@@ -59,10 +59,10 @@ export const ROUTES: EachRoute[] = [
         href: '/coefficients-and-powers',
       },
       {
-        title: "Lesson quiz",
+        title: 'Lesson quiz 📃',
         href: '/testing-quiz',
-        type: "tsx"
-      }
+        type: 'tsx',
+      },
     ],
   },
   {
@@ -80,6 +80,11 @@ export const ROUTES: EachRoute[] = [
       {
         title: 'Use and Removal of Brackets',
         href: '/use-and-removal-of-brackets',
+      },
+      {
+        title: 'Lesson quiz 📃',
+        href: '/testing-quiz',
+        type: 'tsx',
       },
     ],
   },
@@ -99,6 +104,11 @@ export const ROUTES: EachRoute[] = [
       {
         title: 'Simplifying Using Indices',
         href: '/Simplifying-Using-Indices',
+      },
+      {
+        title: 'Lesson quiz 📃',
+        href: '/testing-quiz',
+        type: 'tsx',
       },
     ],
   },
@@ -127,11 +137,17 @@ export const ROUTES: EachRoute[] = [
         title: 'Factorizing Quadratic Expressions',
         href: '/Factorizing-Quadratic-Expressions',
       },
+      {
+        title: 'Lesson quiz 📃',
+        href: '/testing-quiz',
+        type: 'tsx',
+      },
     ],
   },
   {
     title: 'Algebraic Fractions',
     href: '/Algebraic-Fractions',
+    noLink: true,
     items: [
       {
         title: 'Operations on Algebraic Fractions',
@@ -148,6 +164,11 @@ export const ROUTES: EachRoute[] = [
       {
         title: 'Solving Fractional Equations',
         href: '/Solving-Fractional-Equations',
+      },
+      {
+        title: 'Lesson quiz 📃',
+        href: '/testing-quiz',
+        type: 'tsx',
       },
     ],
   },
@@ -168,6 +189,11 @@ export const ROUTES: EachRoute[] = [
         title: ' Fra ctional Equations',
         href: '/fractional-equations',
       },
+      {
+        title: 'Lesson quiz 📃',
+        href: '/testing-quiz',
+        type: 'tsx',
+      },
     ],
   },
   {
@@ -186,6 +212,11 @@ export const ROUTES: EachRoute[] = [
       {
         title: 'Changing the Subject of a Formula',
         href: '/changing-the-subject-of-a-formula',
+      },
+      {
+        title: 'Lesson quiz 📃',
+        href: '/testing-quiz',
+        type: 'tsx',
       },
     ],
   },
@@ -207,6 +238,11 @@ export const ROUTES: EachRoute[] = [
         title: 'Gradient (Slope) and Y-intercept',
         href: '/gradient-slope-and-y-intercept',
       },
+      {
+        title: 'Lesson quiz 📃',
+        href: '/testing-quiz',
+        type: 'tsx',
+      },
     ],
   },
 
@@ -227,6 +263,11 @@ export const ROUTES: EachRoute[] = [
         title: 'Solving by Graphing',
         href: '/solving-by-graphing',
       },
+      {
+        title: 'Lesson quiz 📃',
+        href: '/testing-quiz',
+        type: 'tsx',
+      },
     ],
   },
   {
@@ -241,6 +282,23 @@ export const ROUTES: EachRoute[] = [
       {
         title: 'Graphical Representation on a Number Line',
         href: '/graphing-on-a-number-line',
+      },
+      {
+        title: 'Lesson quiz 📃',
+        href: '/testing-quiz',
+        type: 'tsx',
+      },
+    ],
+  },
+  {
+    title: 'End Quiz',
+    href: '/endQuiz',
+    noLink: true,
+    items: [
+      {
+        title: 'End quiz 📃',
+        href: '/testing-quiz',
+        type: 'tsx',
       },
     ],
   },

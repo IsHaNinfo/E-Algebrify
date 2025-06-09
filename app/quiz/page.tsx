@@ -1,81 +1,79 @@
 'use client';
 import ProgressBar from '@/components/ui/ProgressBar';
 
+
 import React, { useState } from 'react';
 function Page() {
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
-    const quizData = {
-      name: 'Basic Algebraic Concepts',
-      type: 'Lesson end quiz',
-      questions: [
-          {
-            id:1,
-          question: 'What is your favorite programming language?',
-          options: ['Java', 'Python', 'JavaScript', 'C++'],
-          answer: 'JavaScript',
-        },
-          {
-            id:2,
-          question: 'What is the capital of France?',
-          options: ['Berlin', 'Madrid', 'Paris', 'Rome'],
-          answer: 'Paris',
-        },
-          {
-            id:3,
-          question: 'What is the largest planet in our solar system?',
-          options: ['Earth', 'Mars', 'Jupiter', 'Saturn'],
-          answer: 'Jupiter',
-        },
-          {
-            id:4,
-          question: 'What is the boiling point of water?',
-          options: ['0°C', '50°C', '100°C', '150°C'],
-          answer: '100°C',
-        },
-          {
-            id:5,
-          question: 'What is your favorite programming language?',
-          options: ['Java', 'Python', 'JavaScript', 'C++'],
-          answer: 'JavaScript',
-        },
-          {
-            id:6,
-          question: 'What is the capital of France?',
-          options: ['Berlin', 'Madrid', 'Paris', 'Rome'],
-          answer: 'Paris',
-        },
-      ],
-    };
-    type QuestionAnswer = {
-      id: number;
-      answer: string;
-    };
+  const quizData = {
+    name: 'Basic Algebraic Concepts',
+    type: 'Lesson end quiz',
+    questions: [
+      {
+        id: 1,
+        question: 'What is your favorite programming language?',
+        options: ['Java', 'Python', 'JavaScript', 'C++'],
+        answer: 'JavaScript',
+      },
+      {
+        id: 2,
+        question: 'What is the capital of France?',
+        options: ['Berlin', 'Madrid', 'Paris', 'Rome'],
+        answer: 'Paris',
+      },
+      {
+        id: 3,
+        question: 'What is the largest planet in our solar system?',
+        options: ['Earth', 'Mars', 'Jupiter', 'Saturn'],
+        answer: 'Jupiter',
+      },
+      {
+        id: 4,
+        question: 'What is the boiling point of water?',
+        options: ['0°C', '50°C', '100°C', '150°C'],
+        answer: '100°C',
+      },
+      {
+        id: 5,
+        question: 'What is your favorite programming language?',
+        options: ['Java', 'Python', 'JavaScript', 'C++'],
+        answer: 'JavaScript',
+      },
+      {
+        id: 6,
+        question: 'What is the capital of France?',
+        options: ['Berlin', 'Madrid', 'Paris', 'Rome'],
+        answer: 'Paris',
+      },
+    ],
+  };
+  type QuestionAnswer = {
+    id: number;
+    answer: string;
+  };
 
-    const [questionAnswers, setQuestionAnswers] = useState<QuestionAnswer[]>(
-      []
+  const [questionAnswers, setQuestionAnswers] = useState<QuestionAnswer[]>([]);
+
+  const checkAnswers = (answer: string) => {
+    const updatedAnswers = [...questionAnswers];
+    const existingAnswer = updatedAnswers.filter(
+      (data) => data.id === quizData.questions[currentQuestionIndex].id
     );
-
-    const checkAnswers = (answer:string) => {
-      const updatedAnswers = [...questionAnswers];
-      const existingAnswer = updatedAnswers.filter(
-        (data) => data.id === quizData.questions[currentQuestionIndex].id
-      );
-      if (existingAnswer.length > 0) {
-        updatedAnswers.forEach((data) => {
-          if (data.id === quizData.questions[currentQuestionIndex].id) {
-            data.answer = answer;
-          }
-        });
-      } else {
-        updatedAnswers.push({
-          id: quizData.questions[currentQuestionIndex].id,
-          answer: answer,
-        });
-      }
-      setQuestionAnswers(updatedAnswers);
-    };
+    if (existingAnswer.length > 0) {
+      updatedAnswers.forEach((data) => {
+        if (data.id === quizData.questions[currentQuestionIndex].id) {
+          data.answer = answer;
+        }
+      });
+    } else {
+      updatedAnswers.push({
+        id: quizData.questions[currentQuestionIndex].id,
+        answer: answer,
+      });
+    }
+    setQuestionAnswers(updatedAnswers);
+  };
 
   return (
     <div className="min-h-[calc(100vh-140px)] flex justify-center items-center ">
@@ -95,14 +93,12 @@ function Page() {
                   <input
                     type="radio"
                     name="answer"
-                    checked={
-                      questionAnswers.some(
-                        (data) =>
-                          data.id ===
-                            quizData.questions[currentQuestionIndex].id &&
-                          data.answer === answer
-                      )
-                    }
+                    checked={questionAnswers.some(
+                      (data) =>
+                        data.id ===
+                          quizData.questions[currentQuestionIndex].id &&
+                        data.answer === answer
+                    )}
                     value={answer}
                     onChange={() => checkAnswers(answer)}
                     className="appearance-none w-4 h-4 border border-gray-400 rounded-sm checked:bg-purple-500 checked:border-transparent cursor-pointer transition-all duration-200"
