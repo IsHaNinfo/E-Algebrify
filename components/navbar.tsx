@@ -28,6 +28,10 @@ export const NAVLINKS = [
     title: 'Assessments',
     href: '/contents/assessments',
   },
+  {
+    title: 'Discussions Forms',
+    href: '/discussionsforms',
+  }
 ];
 
 export function Navbar() {
