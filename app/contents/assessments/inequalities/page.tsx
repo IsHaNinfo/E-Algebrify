@@ -32,7 +32,7 @@ const InequalitiesAssessment = () => {
             <strong className="text-blue-400">Graphical Representation:</strong> Use open (○) or filled (●) circles and arrows to show ranges on a number line.
           </li>
           <li>
-            <strong className="text-blue-400">Compound Inequalities:</strong> Use "and" for intersection, "or" for union of conditions.
+            <strong className="text-blue-400">Compound Inequalities:</strong> Use &quot;and&quot; for intersection, &quot;or&quot; for union of conditions.
           </li>
         </ul>
         <p className="mt-2 text-blue-200">

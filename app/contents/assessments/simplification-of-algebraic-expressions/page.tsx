@@ -53,7 +53,7 @@ const SimplificationOfAlgebraicExpressionsAssessment = () => {
         {showAnswer && (
           <div className="mt-4 p-4 rounded text-blue-200 bg-gray-800 border border-blue-700">
             <h3 className="font-semibold text-blue-400">Answer:</h3>
-            <p className="mb-2">Let's break it down step by step:</p>
+            <p className="mb-2">Let&apos;s break it down step by step:</p>
             <ul className="list-disc pl-5 space-y-1">
               <li><strong>Step 1: Distribute</strong></li>
               <p className="text-blue-300 font-mono">2x(3x + 4) = 6x² + 8x</p>

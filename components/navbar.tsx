@@ -26,7 +26,7 @@ export const NAVLINKS = [
   },
   {
     title: 'Assessments',
-    href: '/assessments',
+    href: '/contents/assessments',
   },
 ];
 
