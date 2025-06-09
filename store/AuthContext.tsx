@@ -1,6 +1,6 @@
 "use client"
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { jwtDecode } from "jwt-decode";
 
 // Define custom JWT payload type
@@ -26,6 +26,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [token, setTokenState] = useState<string | null>(null);
     const [user, setUser] = useState<CustomJwtPayload | null>(null);
     const router = useRouter();
+    const pathname = usePathname();
 
     const checkUserInDB = async (userId: string) => {
         try {
@@ -52,7 +53,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             const stored = localStorage.getItem('token');
 
             if (!stored) {
-                router.push('/login');
+                // Don't redirect if we're on the register page
+                if (pathname !== '/register') {
+                    router.push('/login');
+                }
                 return;
             }
 
@@ -65,7 +69,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                     setTokenState(null);
                     setUser(null);
                     localStorage.removeItem('token');
-                    router.push('/login');
+                    if (pathname !== '/register') {
+                        router.push('/login');
+                    }
                     return;
                 }
 
@@ -77,7 +83,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                     setTokenState(null);
                     setUser(null);
                     localStorage.removeItem('token');
-                    router.push('/login');
+                    if (pathname !== '/register') {
+                        router.push('/login');
+                    }
                     return;
                 }
 
@@ -89,12 +97,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                 setTokenState(null);
                 setUser(null);
                 localStorage.removeItem('token');
-                router.push('/login');
+                if (pathname !== '/register') {
+                    router.push('/login');
+                }
             }
         };
 
         validateToken();
-    }, [router]);
+    }, [router, pathname]);
 
     const setToken = (token: string | null) => {
         if (token) {
