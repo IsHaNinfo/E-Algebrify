@@ -27,16 +27,14 @@ const page = () => {
 
       <div className="flex flex-col items-center justify-center mb-3">
         <div className="relative w-full max-w-3xl">
-          <div className="transform skew-x-12 bg-gray-700 flex h-4 items-center gap-5 w-full px-5 py-4 shadow-md">
-            <div className="transform -skew-x-12 w-2/12 text-white text-left">
-              rank
+          <div className="transform skew-x-12 bg-gray-700 flex h-4 items-center gap-5 w-full  py-4 shadow-md">
+            <div className="transform -skew-x-12 w-2/12 text-white text-center ">
+              Rank
             </div>
-            <div className="transform -skew-x-12 w-5/12 text-white">Name</div>
-            <div className="transform -skew-x-12 w-2/12 text-white text-center">
-              weekly
-            </div>
+            <div className="transform -skew-x-12 w-5/12 text-white pl-10">Name</div>
+         
             <div className="transform -skew-x-12 w-2/12 text-white text-right">
-              total
+              Points
             </div>
           </div>
         </div>
