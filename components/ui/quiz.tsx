@@ -4,7 +4,32 @@ import { Check } from 'lucide-react';
 import { useAuth } from '@/store/AuthContext';
 import React, { useEffect, useState } from 'react';
 import { addPointsToUser } from '@/services/api';
-function Quiz({ slug }: { slug: string[] }) {
+  // Type Definitions
+  type Question = {
+    id: number;
+    question: string;
+    options: string[];
+    answer: string;
+  };
+
+  type QuizData = {
+    id: number;
+    name: string;
+    type: string;
+    questions: Question[];
+  };
+
+  type QuestionAnswer = {
+    id: number;
+    correctAnswer: string;
+    answer: string;
+    location: number;
+  };
+
+  type QuizProps = {
+    quizData: QuizData;
+  };
+function Quiz({ quizData }: QuizProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showError, setShowError] = useState(false);
   const [showResult, setShowResult] = useState(false);
@@ -16,37 +41,6 @@ function Quiz({ slug }: { slug: string[] }) {
     console.log('Token:', token);
   }, [token]);
 
-  const quizData = {
-    id: 1,
-    name: 'Basic Algebraic Concepts',
-    type: 'Lesson end quiz',
-    questions: [
-      {
-        id: 1,
-        question: 'What is your favorite programming language?',
-        options: ['Java', 'Python', 'JavaScript', 'C++'],
-        answer: 'JavaScript',
-      },
-      {
-        id: 2,
-        question: 'What is the capital of France?',
-        options: ['Berlin', 'Madrid', 'Paris', 'Rome'],
-        answer: 'Paris',
-      },
-      {
-        id: 3,
-        question: 'What is the largest planet in our solar system?',
-        options: ['Earth', 'Mars', 'Jupiter', 'Saturn'],
-        answer: 'Jupiter',
-      },
-    ],
-  };
-  type QuestionAnswer = {
-    id: number;
-    correctAnswer: string;
-    answer: string;
-    location: number;
-  };
 
   useEffect(() => {
     const stored = localStorage.getItem('completedQuizzes');
@@ -76,11 +70,12 @@ function Quiz({ slug }: { slug: string[] }) {
           questionAnswers.length,
           'correct',
           questionAnswers.filter((data) => data.answer == data.correctAnswer)
-            .length,
-          slug
+            .length
         );
-        const marks= questionAnswers.filter((data) => data.answer == data.correctAnswer).length
-        console.log("🚀 ~ handleNext ~ marks:", marks)
+        const marks = questionAnswers.filter(
+          (data) => data.answer == data.correctAnswer
+        ).length;
+        console.log('🚀 ~ handleNext ~ marks:', marks);
         setShowResult(true);
         setCurrentQuestionIndex(0);
         setLoading(true);
