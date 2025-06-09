@@ -26,8 +26,12 @@ export const NAVLINKS = [
   },
   {
     title: 'Assessments',
-    href: '/assessments',
+    href: '/contents/assessments',
   },
+  {
+    title: 'Discussions Forms',
+    href: '/discussionsforms',
+  }
 ];
 
 export function Navbar() {
