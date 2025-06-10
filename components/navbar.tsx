@@ -29,6 +29,10 @@ export const NAVLINKS = [
     href: '/contents/assessments',
   },
   {
+    title: 'Explore',
+    href: '/explore',
+  },
+  {
     title: 'Discussions Forms',
     href: '/discussionsforms',
   }
