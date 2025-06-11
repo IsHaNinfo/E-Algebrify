@@ -20,16 +20,7 @@ export default function Home() {
         >
           Get Stared
         </Link>
-        <Link
-          href="/blog"
-          className={buttonVariants({
-            variant: "secondary",
-            className: "px-6",
-            size: "lg",
-          })}
-        >
-          Read Blog
-        </Link>
+   
       </div>
 
     </div>

@@ -13,12 +13,8 @@ import { getUserById } from "@/services/api";
 
 export const NAVLINKS = [
   {
-    title: 'Documentation',
+    title: 'Course',
     href: `/docs${page_routes[0].href}`,
-  },
-  {
-    title: 'Blog',
-    href: '/blog',
   },
   {
     title: 'Leaderboard',
